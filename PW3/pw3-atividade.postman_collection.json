@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "74d528f5-4d41-472b-a0e4-e95680286d6a",
+		"name": "pw3-atividade",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ESPECIALIDADE",
+			"item": [
+				{
+					"name": "cadastrarEspecialidade",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cod_especialidade\": \"3\",\r\n    \"nome_especialidade\": \"Pediatria\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/especialidade/cadastrarEspecialidade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"especialidade",
+								"cadastrarEspecialidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarEspecialidade",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/especialidade/listarEspecialidade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"especialidade",
+								"listarEspecialidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarEspecialidade_id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/especialidade/listarEspecialidade/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"especialidade",
+								"listarEspecialidade",
+								"3"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alterarEspecialidade",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cod_especialidade\" : \"3\",\r\n    \"nome_especialidade\" : \"X\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/especialidade/alterarEspecialidade?2=Neuro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"especialidade",
+								"alterarEspecialidade"
+							],
+							"query": [
+								{
+									"key": "2",
+									"value": "Neuro"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "excluirEspecialidade",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cod_especialidade\" : \"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/especialidade/excluirEspecialidade?3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"especialidade",
+								"excluirEspecialidade"
+							],
+							"query": [
+								{
+									"key": "3",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MEDICO",
+			"item": [
+				{
+					"name": "cadastrarMedico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cod_medico\" : \"2\",\r\n    \"nome_medico\" : \"João Lima\",\r\n    \"email_medico\" : \"limaJ@gmail.com\",\r\n    \"telefone_medico\" : \"9999-9999\",\r\n    \"celular_medico\" : \"11 99999-9999\",\r\n    \"tblEspecialidadeCodEspecialidade\" : \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/medico/cadastrarMedico",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"medico",
+								"cadastrarMedico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarMedico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/medico/listarMedico",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"medico",
+								"listarMedico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarMedico_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/medico/listarMedico/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"medico",
+								"listarMedico",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editarMedico",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_medico\" : \"Vinicius M\",\r\n    \"email_medico\" : \"vi@gmail.com\",\r\n    \"telefone_medico\" : \"11 8888-8888\",\r\n    \"celular_medico\" : \"11 77777-7777\",\r\n    \"tblEspecialidadeCodEspecialidade\" : \"2\",\r\n    \"cod_medico\" : \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/medico/editarMedico",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"medico",
+								"editarMedico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "excluirMedico",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cod_medico\" : \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/medico/excluirMedico",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"medico",
+								"excluirMedico"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
