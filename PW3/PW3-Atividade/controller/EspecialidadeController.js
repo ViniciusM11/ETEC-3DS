@@ -6,14 +6,14 @@ router.post(
     '/especialidade/cadastrarEspecialidade',
     (req, res)=>{
        
-        let { cod_especialidade, nome_especialidade } = req.body;
+        let { id, nome_especialidade } = req.body;
 
         especialidade.create(
-                {cod_especialidade,
+                {id,
                 nome_especialidade}
         ).then(
             ()=>{
-                res.send('ESPECIALIDADE INSERIDA COM SUCESSO!');
+                res.redirect('http://localhost:3001/listagemEspecialidade');
             }
         );
     }
@@ -32,12 +32,12 @@ router.get(
 );
 
 router.get(
-    '/especialidade/listarEspecialidade/:cod_especialidade',
+    '/especialidade/listarEspecialidade/:id',
     (req, res)=>{
 
-        let {cod_especialidade} = req.params;
+        let {id} = req.params;
 
-        especialidade.findByPk(cod_especialidade)
+        especialidade.findByPk(id)
         .then(
             (especialidade)=>{
                 res.send(especialidade)
@@ -50,11 +50,11 @@ router.put(
     '/especialidade/alterarEspecialidade',
     (req, res)=>{
 
-        let {cod_especialidade, nome_especialidade} = req.body;
+        let {id, nome_especialidade} = req.body;
 
         especialidade.update(
             {nome_especialidade},
-            {where: {cod_especialidade}}
+            {where: {id}}
         ).then(
             ()=>{
                 res.send('ESPECIALIDADE ALTERADA COM SUCESSO');
@@ -67,10 +67,10 @@ router.delete(
     '/especialidade/excluirEspecialidade',
     (req, res)=>{
 
-        let {cod_especialidade} = req.body;
+        let {id} = req.body;
 
         especialidade.destroy(
-            {where: {cod_especialidade}}
+            {where: {id}}
         ).then(
             ()=>{
                 res.send('ESPECIALIDADE EXCLUIDA COM SUCESSO');

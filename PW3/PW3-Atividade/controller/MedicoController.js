@@ -8,26 +8,26 @@ router.post(
        
         
         let { 
-            cod_medico, 
+            id, 
             nome_medico,
             email_medico,
             telefone_medico,
             celular_medico,
-            tblEspecialidadeCodEspecialidade 
+            tblEspecialidadeId 
         } = req.body;
 
         medico.create(
             {
-                cod_medico, 
+                id, 
                 nome_medico,
                 email_medico,
                 telefone_medico,
                 celular_medico,
-                tblEspecialidadeCodEspecialidade
+                tblEspecialidadeId
             }
         ).then(
             ()=>{
-                res.send('MEDICO CADASTRADO COM SUCESSO!');
+                res.redirect('http://localhost:3001/listagemMedico');
             }
         );
     }
@@ -46,12 +46,12 @@ router.get(
 );
 
 router.get(
-    '/medico/listarMedico/:cod_medico',
+    '/medico/listarMedico/:id',
     (req, res)=>{
 
-        let {cod_medico} = req.params;
+        let {id} = req.params;
 
-        medico.findByPk(cod_medico)
+        medico.findByPk(id)
         .then(
             (medico)=>{
                 res.send(medico)
@@ -60,7 +60,7 @@ router.get(
     }
 );
 
-router.put(
+router.post(
     '/medico/editarMedico',
     (req, res)=>{
 
@@ -69,8 +69,8 @@ router.put(
             email_medico,
             telefone_medico,
             celular_medico,
-            tblEspecialidadeCodEspecialidade,
-            cod_medico
+            tblEspecialidadeId,
+            id
         } = req.body;
 
         medico.update(
@@ -79,35 +79,25 @@ router.put(
                 email_medico,
                 telefone_medico,
                 celular_medico,
-                tblEspecialidadeCodEspecialidade},
-            {where: {cod_medico}}
+                tblEspecialidadeId},
+            {where: {id}}
         ).then(
             ()=>{
-                res.send('MEDICO ALTERADO COM SUCESSO');
+                res.redirect('http://localhost:3001/listagemMedico');
             }
         );
     }
 );
 
-router.delete(
-    '/medico/excluirMedico',
-    (req, res)=>{
-
-        let { cod_medico } = req.body;
-
-        medico.findByPk(cod_medico)
-        .then((medico)=>{
-            
-            medico.destroy(
-                {where: {cod_medico}}
-            ).then(
-                ()=>{
-                    res.send('MEDICO EXCLUIDO COM SUCESSO');
-                }
-            );
-
-        })
-    }
-);
+router.delete('/excluirMedico/:id', (req, res) => {
+    const {id} = req.params;
+    medico.destroy(
+        {where: {id}
+    })
+    .then(
+        ()=>{
+            res.redirect('http://localhost:3001/listagemMedico');
+        });
+});
 
 module.exports = router;

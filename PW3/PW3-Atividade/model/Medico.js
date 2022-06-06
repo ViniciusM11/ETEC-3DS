@@ -8,7 +8,7 @@ const Especialidade = require('./Especialidade');
 const Medico = connection.define(
     'tbl_medico',
     {
-        cod_medico:{
+        id:{
             type: Sequelize.INTEGER,
             autoIncrement: true,
             primaryKey: true

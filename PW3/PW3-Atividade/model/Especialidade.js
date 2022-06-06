@@ -5,9 +5,9 @@ const Sequelize = require('sequelize');
 const connection = require('../database/database');
 
 const Especialidade = connection.define(
-    'tbl_especialidade',
+    'tbl_especialidades',
     {
-        cod_especialidade:{
+        id:{
             type: Sequelize.INTEGER,
             autoIncrement: true,
             primaryKey: true
